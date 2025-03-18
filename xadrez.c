@@ -2,7 +2,7 @@
 
 int main() {
     //declaração de variáveis e menu inicial do programa
-    int opcao, opcao2, b = 0, r = 0;
+    int opcao, opcao2, opcao3, torre, bispo = 0, rainha = 0, cavalo = 1;
     printf("Bem vindo ao xadrez!\n");
     printf("O que vamos fazer?\n");
     printf("1. Movimentar peças\n");
@@ -14,7 +14,7 @@ int main() {
     {
     case 1: //inicio da movimentação de peças
         printf("A princípio, temos 3 peças para movimentar:\n");
-        printf("1. Torre (para a direita); 2. Bispo (para cima e para a direita); 3. Rainha(para a esquerda)\n");
+        printf("1. Torre (para a direita); 2. Bispo (cima direita); 3. Rainha(para a esquerda); 4. Cavalo(cima cima direita)\n");
         printf("Escolha qual peça movimentar:\n");
         scanf("%d", &opcao2);
         //switch para movimentação de peças
@@ -22,7 +22,7 @@ int main() {
         {
         case 1:
         //movimentação da torre
-            for (int i = 0; i < 5; i++)
+            for (torre = 0; torre < 5; torre++)
             {
                 printf("Direita\n");
             }
@@ -31,10 +31,10 @@ int main() {
         
         case 2:
         //movimentação do bispo
-        while (b < 5)
+        while (bispo < 5)
         {
             printf("Cima direita\n");
-            b++;
+            bispo++;
         }
         //fim da movimentação do bispo
         break;
@@ -44,9 +44,46 @@ int main() {
             do
             {
                 printf("para a esquerda\n");
-                r++;
-            } while (r < 5);
+                rainha++;
+            } while (rainha < 5);
+        break;
         //fim da movimentação da rainha
+
+        //movimentação do cavalo
+        case 4:
+        printf("Para qual direção você deseja ir?\n");
+        printf("1. Cima cima direita; 2. Cima Cima esquerda\n");
+        scanf("%d", &opcao3);
+
+        //inicio do switch da movimentação do cavalo
+        switch (opcao3)
+        {
+        case 1:
+        while (cavalo--)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                printf("Cima\n");
+            }
+            printf("Direita\n");
+        }
+        //fim da movimentação do cavalo
+            break;
+
+        case 2:
+        while (cavalo--)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                printf("Cima\n");
+            }
+            printf("Esquerda\n");
+        }
+        
+        default:
+            break;
+        }
+        //fim do switch da movimentação do cavalo
             
         default:
             break;
@@ -70,10 +107,6 @@ int main() {
         break;
     //fim do switch do menu interativo
     }
-
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
 
     // Nível Mestre - Funções Recursivas e Loops Aninhados
     // Sugestão: Substitua as movimentações das peças por funções recursivas.
