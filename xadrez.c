@@ -1,5 +1,33 @@
 #include <stdio.h>
 
+void moverTorre(int casas) {
+    if (casas > 0) {
+        printf("Direita\n");
+        moverTorre(casas - 1);
+    }
+}
+
+void moverBispo(int casas) {
+    if (casas > 0) {
+        for (int i = 1; i <= 5; i++)
+        {
+            for (int j = 1; j <= 1; j++)
+            {
+                printf("Cima\n");
+            }
+            printf("Direita\n");
+        }
+        
+    }
+}
+
+void moverRainha(int casas) {
+    if (casas > 0) {
+        printf("Esquerda\n");
+        moverRainha(casas - 1);
+    }
+}
+
 int main() {
     //declaração de variáveis e menu inicial do programa
     int opcao, opcao2, opcao3, torre, bispo = 0, rainha = 0, cavalo = 1;
@@ -22,51 +50,39 @@ int main() {
         {
         case 1:
         //movimentação da torre
-            for (torre = 0; torre < 5; torre++)
-            {
-                printf("Direita\n");
-            }
+            moverTorre(5);
         //fim movimentação da torre
             break;
         
         case 2:
         //movimentação do bispo
-        while (bispo < 5)
-        {
-            printf("Cima direita\n");
-            bispo++;
-        }
+            moverBispo(5);
         //fim da movimentação do bispo
         break;
         
         //movimentação da rainha
         case 3:
-            do
-            {
-                printf("para a esquerda\n");
-                rainha++;
-            } while (rainha < 5);
+           moverRainha(8);
         break;
         //fim da movimentação da rainha
 
         //movimentação do cavalo
         case 4:
         printf("Para qual direção você deseja ir?\n");
-        printf("1. Cima cima direita; 2. Cima Cima esquerda\n");
+        printf("1. Cima cima direita; 2. Cima cima esquerda\n");
         scanf("%d", &opcao3);
 
         //inicio do switch da movimentação do cavalo
         switch (opcao3)
         {
         case 1:
-        while (cavalo--)
+        for (int i = 0, j = 2; i < j; i++, j--)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                printf("Cima\n");
-            }
+            printf("Cima\n");
+            printf("Cima\n");
             printf("Direita\n");
         }
+        
         //fim da movimentação do cavalo
             break;
 
